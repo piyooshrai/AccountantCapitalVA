@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest: #1B3A2D;
+  --forest-mid: #2D5A46;
+  --forest-light: #4A8A6E;
+  --mint: #7DD4AA;
+  --mint-light: #A8E6C8;
+  --stone: #F5F2EC;
+  --stone-warm: #EDE8DF;
+  --white: #FFFFFF;
+  --text-dark: #1A1A1A;
+  --text-mid: #5C5C5C;
+  --text-light: #9A9A9A;
+  --amber: #D4A843;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--stone);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fraunces', serif;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+  color: var(--text-mid);
+}
+
+a {
+  color: var(--forest);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--mint);
+}
+
+button, [role="button"] {
+  font-family: 'Manrope', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+/* Section labels */
+.section-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--forest-light);
+}
+
+/* Section headings */
+.section-heading {
+  font-size: clamp(30px, 3.5vw, 46px);
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  color: var(--forest);
+  line-height: 1.2;
+}
+
+/* Service card numbers */
+.service-number {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(48px, 8vw, 120px);
+  font-weight: 300;
+  color: var(--mint-light);
+}
+
+/* Data tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 14px;
+}
+
+th {
+  background-color: var(--forest);
+  color: white;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--stone-warm);
+}
+
+tr:hover {
+  background-color: var(--stone-warm);
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 30px rgba(27, 58, 45, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--forest);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--forest-mid);
+}
+
+.btn-secondary {
+  background-color: var(--mint);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--mint-light);
+}
+
+.btn-outline {
+  border: 2px solid var(--forest);
+  color: var(--forest);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--forest);
+  color: white;
+}
+
+/* Links */
+.link {
+  color: var(--mint);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: var(--forest);
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: var(--stone-warm);
+  color: var(--forest);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-mint {
+  background-color: var(--mint-light);
+  color: var(--forest);
+}
+
+.badge-amber {
+  background-color: #FEF3C7;
+  color: var(--amber);
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, var(--stone) 0%, var(--stone-warm) 100%);
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Clip paths for geometric dividers */
+.clip-angled {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.clip-angled-reverse {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.6s ease-out;
+}
+
+/* Utility classes */
+.max-w-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-padding {
+  padding: 80px 20px;
+}
+
+.text-forest {
+  color: var(--forest);
+}
+
+.text-mint {
+  color: var(--mint);
+}
+
+.text-stone {
+  color: var(--stone);
+}
+
+.bg-forest {
+  background-color: var(--forest);
+}
+
+.bg-mint {
+  background-color: var(--mint);
+}
+
+.bg-stone {
+  background-color: var(--stone);
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 20px;
+  }
+
+  .hero {
+    padding: 60px 20px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .section-heading {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--stone);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mint);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--forest);
+}
