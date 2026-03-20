@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     question: 'What happens if QuickBooks discontinues Desktop support?',
-    answer: 'Intuit has already extended Desktop support through 2025, with a potential extension. If you decide to migrate before then, your VA will manage the entire process. They'll map your chart of accounts, validate data, set up integrations in QBO, and ensure zero loss of historical records.'
+    answer: 'Intuit has already extended Desktop support through 2025, with a potential extension. If you decide to migrate before then, your VA will manage the entire process. They will map your chart of accounts, validate data, set up integrations in QBO, and ensure zero loss of historical records.'
   },
   {
     question: 'Can a VA access my QuickBooks Desktop file remotely?',
