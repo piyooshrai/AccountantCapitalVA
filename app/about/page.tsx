@@ -117,10 +117,13 @@ export default function AboutPage() {
             ].map((member) => (
               <div key={member.name} className="bg-white rounded-lg overflow-hidden hover:shadow-lg transition">
                 <div className="h-64 bg-stone-warm relative">
-                  {/* Placeholder for images - in production these would be Image components */}
-                  <div className="w-full h-full flex items-center justify-center bg-forest-light text-white text-sm">
-                    {member.name}
-                  </div>
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                    priority={true}
+                  />
                 </div>
                 <div className="p-6">
                   <h3 className="font-fraunces font-600 text-lg text-forest">{member.name}</h3>
