@@ -89,51 +89,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team & Vetting */}
+      {/* Vetting & Standards */}
       <section className="py-20 bg-stone">
         <div className="max-w-container mx-auto px-6">
-          <h2 className="section-heading text-forest mb-12">Who We Are</h2>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {[
-              {
-                name: 'Maya',
-                image: '/agents/maya.jpg',
-                title: 'Senior Bookkeeper VA',
-                bio: 'QuickBooks certified with 8+ years of accounting experience. Specializes in multi-channel reconciliation and financial reporting.'
-              },
-              {
-                name: 'Daniel',
-                image: '/agents/daniel.jpg',
-                title: 'Payroll & Accounts Payable Specialist',
-                bio: 'Expert in Gusto, ADP, and payroll tax compliance. Managed accounting operations for healthcare group before joining us.'
-              },
-              {
-                name: 'Elena',
-                image: '/agents/elena.jpg',
-                title: 'Financial Reporting & AR Manager',
-                bio: 'Xero and Excel expert. Builds custom dashboards and financial reports. 10+ years managing AR for professional services.'
-              }
-            ].map((member) => (
-              <div key={member.name} className="bg-white rounded-lg overflow-hidden hover:shadow-lg transition">
-                <div className="h-64 bg-stone-warm relative">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                    priority={true}
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-fraunces font-600 text-lg text-forest">{member.name}</h3>
-                  <p className="text-sm text-mint font-600 mb-2">{member.title}</p>
-                  <p className="text-text-mid text-sm">{member.bio}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
           <div className="bg-white rounded-lg p-12 border-2 border-mint">
             <h3 className="text-2xl font-fraunces font-600 text-forest mb-8">Our Vetting Process</h3>
             <p className="text-text-mid mb-8 leading-relaxed">

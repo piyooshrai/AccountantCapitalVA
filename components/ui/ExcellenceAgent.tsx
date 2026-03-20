@@ -11,6 +11,12 @@ const AGENT_CONFIG = {
   bookingLink: '/contact',
 };
 
+const AGENT_IMAGES: Record<string, string> = {
+  'Maya': '/agents/maya.jpg',
+  'Daniel': '/agents/daniel.jpg',
+  'Elena': '/agents/elena.jpg',
+};
+
 type MessageOption = {
   label: string;
   next: string;
@@ -319,14 +325,14 @@ export default function ExcellenceAgent() {
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{
-                width: '36px', height: '36px', borderRadius: '50%',
-                background: 'rgba(255,255,255,0.15)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '14px', color: 'white', fontWeight: 600,
-              }}>
-                {AGENT_CONFIG.agentName[0]}
-              </div>
+              <img
+                src={AGENT_IMAGES[AGENT_CONFIG.agentName] || '/agents/maya.jpg'}
+                alt={AGENT_CONFIG.agentName}
+                style={{
+                  width: '36px', height: '36px', borderRadius: '50%',
+                  objectFit: 'cover', border: '2px solid rgba(255,255,255,0.2)',
+                }}
+              />
               <div>
                 <div style={{ color: 'white', fontSize: '14px', fontWeight: 600 }}>{AGENT_CONFIG.agentName}</div>
                 <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '11px' }}>
