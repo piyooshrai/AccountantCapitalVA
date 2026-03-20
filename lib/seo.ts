@@ -41,7 +41,6 @@ export const generateMetadata = (
     title: fullTitle,
     description,
     keywords: [keyword, 'bookkeeping', 'virtual assistant', 'accounting'],
-    canonical: `https://accountantcapitalva.com${url}`,
     openGraph: {
       type: 'website',
       locale: 'en_US',
