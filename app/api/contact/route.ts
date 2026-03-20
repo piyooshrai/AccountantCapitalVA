@@ -39,7 +39,7 @@ IP: ${req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'Unk
     const { data, error } = await resend.emails.send({
       from: 'Accountant Capital VA <onboarding@resend.dev>',
       to: process.env.CONTACT_EMAIL || 'info@thehuman.capital',
-      replyTo: email,
+      reply_to: email,
       subject: `New Contact: ${name} - accountantcapitalva.com`,
       html: `<pre>${emailContent}</pre>`,
       text: emailContent,
