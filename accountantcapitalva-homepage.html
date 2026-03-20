@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accountant Capital VA | Bookkeeping & Financial Virtual Assistants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --forest: #1B3A2D;
+  --forest-mid: #2D5A46;
+  --forest-light: #4A8A6E;
+  --mint: #7DD4AA;
+  --mint-light: #A8E6C8;
+  --stone: #F5F2EC;
+  --stone-warm: #EDE8DF;
+  --white: #FFFFFF;
+  --text-dark: #1A1A1A;
+  --text-mid: #5C5C5C;
+  --text-light: #9A9A9A;
+  --amber: #D4A843;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Manrope', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); color: var(--text-dark); background: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── NAV ─── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 60px; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: transparent; transition: all 0.4s;
+}
+.nav.scrolled { background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(0,0,0,0.05); }
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo-mark {
+  width: 38px; height: 38px; background: var(--forest); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); color: var(--mint); font-size: 18px; font-weight: 600;
+}
+.nav-logo-text { font-family: var(--sans); font-size: 16px; font-weight: 700; color: var(--forest); letter-spacing: -0.01em; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { font-size: 13px; font-weight: 600; color: var(--text-mid); transition: color 0.3s; }
+.nav-links a:hover { color: var(--forest); }
+.nav-cta {
+  padding: 10px 24px; background: var(--forest); color: white !important;
+  font-size: 13px; font-weight: 700; border-radius: 8px; transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--forest-mid); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh; background: var(--stone); position: relative;
+  display: flex; align-items: center; padding: 120px 60px 80px;
+  overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 45%;
+  background: var(--forest);
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.hero-inner {
+  max-width: 1400px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; background: var(--forest); border-radius: 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--mint); margin-bottom: 28px;
+}
+.hero h1 {
+  font-family: var(--serif); font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.1; color: var(--forest); font-weight: 600; letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+.hero h1 span { color: var(--forest-light); font-weight: 300; font-style: italic; }
+.hero-sub {
+  font-size: 17px; line-height: 1.75; color: var(--text-mid); max-width: 500px;
+  margin-bottom: 40px; font-weight: 400;
+}
+.hero-buttons { display: flex; gap: 12px; }
+.btn-forest {
+  padding: 14px 32px; background: var(--forest); color: white;
+  font-size: 14px; font-weight: 700; border-radius: 8px;
+  border: none; cursor: pointer; transition: all 0.3s; font-family: var(--sans);
+}
+.btn-forest:hover { background: var(--forest-mid); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(27,58,45,0.2); }
+.btn-stone {
+  padding: 14px 32px; background: white; color: var(--forest);
+  font-size: 14px; font-weight: 700; border-radius: 8px;
+  border: 2px solid var(--forest); cursor: pointer; transition: all 0.3s; font-family: var(--sans);
+}
+.btn-stone:hover { background: var(--forest); color: white; }
+
+/* Hero Right — Dashboard Card */
+.hero-dash {
+  background: white; border-radius: 16px; padding: 36px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.12); position: relative;
+}
+.hd-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
+.hd-title { font-size: 14px; font-weight: 700; color: var(--forest); }
+.hd-badge { font-size: 11px; font-weight: 700; color: var(--forest-light); background: rgba(74,138,110,0.1); padding: 4px 10px; border-radius: 4px; }
+.hd-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+.hd-row:last-child { border: none; }
+.hd-label { font-size: 13px; color: var(--text-light); font-weight: 500; }
+.hd-value { font-size: 13px; font-weight: 700; color: var(--text-dark); }
+.hd-value.positive { color: var(--forest-light); }
+.hd-chart {
+  margin-top: 24px; height: 80px; background: linear-gradient(180deg, rgba(125,212,170,0.15) 0%, transparent 100%);
+  border-radius: 8px; position: relative; overflow: hidden;
+}
+.hd-chart-line {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 60%;
+  background: linear-gradient(180deg, rgba(125,212,170,0.3) 0%, transparent 100%);
+  clip-path: polygon(0% 80%, 10% 60%, 20% 70%, 30% 40%, 40% 50%, 50% 20%, 60% 35%, 70% 15%, 80% 25%, 90% 5%, 100% 10%, 100% 100%, 0% 100%);
+}
+.hd-summary {
+  margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;
+}
+.hd-sum-item { text-align: center; padding: 12px; background: var(--stone); border-radius: 8px; }
+.hd-sum-num { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--forest); }
+.hd-sum-label { font-size: 10px; color: var(--text-light); font-weight: 600; letter-spacing: 0.04em; margin-top: 2px; text-transform: uppercase; }
+
+/* ─── TRUST ─── */
+.trust-strip {
+  background: var(--forest); padding: 20px 60px;
+  display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+}
+.trust-strip span { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 600; }
+
+/* ─── SECTIONS ─── */
+.section { padding: 120px 60px; }
+.section-label {
+  font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--forest-light); margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--serif); font-size: clamp(30px, 3.5vw, 46px);
+  color: var(--forest); line-height: 1.15; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 16px;
+}
+.section-sub { font-size: 16px; line-height: 1.75; color: var(--text-mid); max-width: 560px; }
+
+/* ─── SERVICES ─── */
+.services-section { background: white; }
+.services-grid {
+  max-width: 1400px; margin: 60px auto 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.svc-card {
+  background: var(--stone); border-radius: 12px; padding: 36px 28px;
+  transition: all 0.3s; border: 1px solid transparent; position: relative; overflow: hidden;
+}
+.svc-card:hover { border-color: var(--forest); background: white; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(27,58,45,0.06); }
+.svc-num { font-family: var(--serif); font-size: 32px; color: var(--mint); font-weight: 300; margin-bottom: 16px; }
+.svc-card h3 { font-size: 18px; font-weight: 700; color: var(--forest); margin-bottom: 10px; }
+.svc-card p { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+.svc-tools {
+  margin-top: 16px; display: flex; gap: 6px; flex-wrap: wrap;
+}
+.svc-tool {
+  padding: 3px 10px; background: rgba(27,58,45,0.06); border-radius: 4px;
+  font-size: 11px; font-weight: 700; color: var(--forest); letter-spacing: 0.02em;
+}
+
+/* ─── COMPARISON ─── */
+.comparison-section { background: var(--stone); }
+.comp-table {
+  max-width: 1000px; margin: 60px auto 0; border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.comp-row {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; background: white;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.comp-row.header { background: var(--forest); }
+.comp-cell { padding: 16px 24px; font-size: 14px; font-weight: 500; color: var(--text-mid); }
+.comp-row.header .comp-cell { color: rgba(255,255,255,0.8); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+.comp-cell.label { font-weight: 700; color: var(--text-dark); }
+.comp-cell.highlight { color: var(--forest); font-weight: 700; }
+.comp-row:nth-child(odd):not(.header) { background: rgba(245,242,236,0.5); }
+
+/* ─── CASE STUDY ─── */
+.case-section { background: var(--forest); color: white; }
+.case-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+.case-section .section-label { color: var(--mint); }
+.case-section .section-title { color: white; }
+.case-quote {
+  font-family: var(--serif); font-size: clamp(22px, 2.5vw, 32px);
+  line-height: 1.5; font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,0.85); margin: 40px 0;
+  max-width: 800px; margin-left: auto; margin-right: auto;
+}
+.case-metrics { display: flex; justify-content: center; gap: 64px; margin-top: 48px; }
+.case-metric-num { font-family: var(--serif); font-size: 48px; font-weight: 700; color: var(--mint); }
+.case-metric-label { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px; font-weight: 600; }
+
+/* ─── PRICING ─── */
+.pricing-section { background: white; }
+.pricing-grid {
+  max-width: 1100px; margin: 60px auto 0;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+}
+.price-card {
+  border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; padding: 40px 32px;
+  transition: all 0.3s;
+}
+.price-card.featured { background: var(--forest); color: white; border-color: var(--forest); transform: scale(1.02); }
+.price-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+.pc-label { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--forest-light); margin-bottom: 16px; }
+.price-card.featured .pc-label { color: var(--mint); }
+.pc-amount { font-family: var(--serif); font-size: 40px; font-weight: 700; color: var(--forest); }
+.price-card.featured .pc-amount { color: white; }
+.pc-period { font-size: 16px; font-weight: 400; color: var(--text-light); }
+.price-card.featured .pc-period { color: rgba(255,255,255,0.5); }
+.pc-desc { font-size: 14px; color: var(--text-mid); line-height: 1.6; margin: 16px 0 24px; }
+.price-card.featured .pc-desc { color: rgba(255,255,255,0.6); }
+.pc-features { list-style: none; margin-bottom: 32px; }
+.pc-features li { padding: 8px 0; font-size: 14px; color: var(--text-mid); display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(0,0,0,0.03); }
+.price-card.featured .pc-features li { color: rgba(255,255,255,0.65); border-color: rgba(255,255,255,0.06); }
+.pc-features li::before { content: '/'; color: var(--forest-light); font-weight: 800; }
+.price-card.featured .pc-features li::before { color: var(--mint); }
+.pc-btn {
+  display: block; width: 100%; padding: 14px; text-align: center; border-radius: 8px;
+  font-size: 14px; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s;
+  font-family: var(--sans);
+}
+.pc-btn.outline { background: transparent; border: 2px solid var(--forest); color: var(--forest); }
+.pc-btn.outline:hover { background: var(--forest); color: white; }
+.pc-btn.filled { background: var(--mint); color: var(--forest); }
+.pc-btn.filled:hover { background: var(--mint-light); }
+
+/* ─── CTA ─── */
+.cta-section { background: var(--stone); padding: 100px 60px; text-align: center; }
+.cta-inner { max-width: 700px; margin: 0 auto; }
+.cta-section h2 { font-family: var(--serif); font-size: clamp(30px, 3.5vw, 46px); color: var(--forest); font-weight: 600; margin-bottom: 16px; line-height: 1.15; }
+.cta-section p { font-size: 16px; color: var(--text-mid); margin-bottom: 32px; line-height: 1.7; }
+
+/* ─── FOOTER ─── */
+.footer { background: var(--forest); padding: 80px 60px 40px; }
+.footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; }
+.footer-brand-text { font-family: var(--sans); font-size: 18px; color: white; font-weight: 700; }
+.footer-brand p { font-size: 14px; color: rgba(255,255,255,0.35); line-height: 1.7; margin-top: 12px; max-width: 280px; }
+.footer-col h5 { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.45); padding: 3px 0; transition: color 0.3s; }
+.footer-col a:hover { color: var(--mint); }
+.footer-bottom { max-width: 1400px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.25); }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: all 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1024px) {
+  .hero::before { display: none; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-dash { display: none; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .comp-row { grid-template-columns: 1fr 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .price-card.featured { transform: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav { padding: 0 24px; } .nav-links { display: none; }
+  .section { padding: 80px 24px; } .hero { padding: 120px 24px 80px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .case-metrics { flex-direction: column; gap: 24px; }
+  .footer { padding: 60px 24px 32px; } .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">AC</div>
+    <div class="nav-logo-text">Accountant Capital VA</div>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#compare">Compare</a>
+    <a href="#pricing">Pricing</a>
+    <a href="/locations">Locations</a>
+    <a href="/contact" class="nav-cta">Book Strategy Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Bookkeeping &amp; Financial VAs</div>
+      <h1>Clean books.<br><span>Confident decisions.</span></h1>
+      <p class="hero-sub">Dedicated virtual assistants for bookkeeping, QuickBooks management, invoicing, payroll support, and financial reporting. Accurate numbers from professionals who understand your ledger.</p>
+      <div class="hero-buttons">
+        <button class="btn-forest">Book a Strategy Call</button>
+        <button class="btn-stone">See Services</button>
+      </div>
+    </div>
+    <div class="hero-dash">
+      <div class="hd-header">
+        <div class="hd-title">Monthly Financial Summary</div>
+        <div class="hd-badge">Feb 2025</div>
+      </div>
+      <div class="hd-row"><div class="hd-label">Revenue</div><div class="hd-value">$127,450.00</div></div>
+      <div class="hd-row"><div class="hd-label">Expenses</div><div class="hd-value">$84,230.00</div></div>
+      <div class="hd-row"><div class="hd-label">Net Profit</div><div class="hd-value positive">$43,220.00</div></div>
+      <div class="hd-row"><div class="hd-label">Accounts Receivable</div><div class="hd-value">$18,750.00</div></div>
+      <div class="hd-chart"><div class="hd-chart-line"></div></div>
+      <div class="hd-summary">
+        <div class="hd-sum-item"><div class="hd-sum-num">142</div><div class="hd-sum-label">Transactions</div></div>
+        <div class="hd-sum-item"><div class="hd-sum-num">100%</div><div class="hd-sum-label">Reconciled</div></div>
+        <div class="hd-sum-item"><div class="hd-sum-num">3</div><div class="hd-sum-label">Reports Sent</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust-strip">
+  <span>QuickBooks Certified</span>
+  <span>Xero Proficient</span>
+  <span>NDA Protected</span>
+  <span>Background Verified</span>
+  <span>Month-to-Month</span>
+  <span>Top 3% Hired</span>
+</div>
+
+<!-- SERVICES -->
+<section class="section services-section" id="services">
+  <div style="max-width:1400px;margin:0 auto;">
+    <div class="section-label reveal">Financial Services</div>
+    <div class="section-title reveal">Every number accounted for.</div>
+    <div class="section-sub reveal">From daily transaction recording to year-end tax prep support — your VA handles the financial operations that keep your business running and your accountant happy.</div>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <div class="svc-num">01</div>
+      <h3>Daily Bookkeeping</h3>
+      <p>Transaction recording, expense categorization, receipt capture, and general ledger maintenance. Every dollar tracked, every day.</p>
+      <div class="svc-tools"><span class="svc-tool">QuickBooks</span><span class="svc-tool">Xero</span><span class="svc-tool">FreshBooks</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">02</div>
+      <h3>Bank Reconciliation</h3>
+      <p>Monthly statement reconciliation, discrepancy identification, outstanding check tracking, and cleared transaction verification.</p>
+      <div class="svc-tools"><span class="svc-tool">QuickBooks</span><span class="svc-tool">Wave</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">03</div>
+      <h3>Invoicing &amp; AR</h3>
+      <p>Invoice creation, payment tracking, overdue account follow-ups, aging report management, and cash flow optimization.</p>
+      <div class="svc-tools"><span class="svc-tool">QuickBooks</span><span class="svc-tool">Stripe</span><span class="svc-tool">Square</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">04</div>
+      <h3>Expense &amp; AP Management</h3>
+      <p>Vendor bill processing, payment scheduling, expense categorization for tax purposes, and accounts payable tracking.</p>
+      <div class="svc-tools"><span class="svc-tool">Bill.com</span><span class="svc-tool">Expensify</span><span class="svc-tool">Dext</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">05</div>
+      <h3>Payroll Support</h3>
+      <p>Payroll data entry, hours tracking, PTO management, contractor 1099 preparation, and payroll provider coordination.</p>
+      <div class="svc-tools"><span class="svc-tool">Gusto</span><span class="svc-tool">ADP</span><span class="svc-tool">Paychex</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">06</div>
+      <h3>Financial Reporting</h3>
+      <p>P&L statements, balance sheets, cash flow reports, budget vs. actual analysis, and custom financial dashboards.</p>
+      <div class="svc-tools"><span class="svc-tool">Excel</span><span class="svc-tool">Google Sheets</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section comparison-section" id="compare">
+  <div style="text-align:center;max-width:800px;margin:0 auto;">
+    <div class="section-label reveal" style="justify-content:center;display:flex;">Why a VA Over a Full-Time Hire</div>
+    <div class="section-title reveal">The math speaks for itself.</div>
+  </div>
+  <div class="comp-table reveal">
+    <div class="comp-row header">
+      <div class="comp-cell"></div>
+      <div class="comp-cell">Full-Time Bookkeeper</div>
+      <div class="comp-cell">Freelancer</div>
+      <div class="comp-cell">Accountant Capital VA</div>
+    </div>
+    <div class="comp-row"><div class="comp-cell label">Monthly Cost</div><div class="comp-cell">$4,500–$6,000</div><div class="comp-cell">$2,000–$4,000</div><div class="comp-cell highlight">$700–$1,300</div></div>
+    <div class="comp-row"><div class="comp-cell label">Annual Cost</div><div class="comp-cell">$55K–$80K</div><div class="comp-cell">$24K–$48K</div><div class="comp-cell highlight">$8,400–$15,600</div></div>
+    <div class="comp-row"><div class="comp-cell label">Dedicated Person</div><div class="comp-cell">Yes</div><div class="comp-cell">Varies</div><div class="comp-cell highlight">Yes</div></div>
+    <div class="comp-row"><div class="comp-cell label">Backup Coverage</div><div class="comp-cell">No</div><div class="comp-cell">No</div><div class="comp-cell highlight">Yes</div></div>
+    <div class="comp-row"><div class="comp-cell label">Client Manager</div><div class="comp-cell">No</div><div class="comp-cell">No</div><div class="comp-cell highlight">Yes</div></div>
+    <div class="comp-row"><div class="comp-cell label">Background Check</div><div class="comp-cell">Maybe</div><div class="comp-cell">No</div><div class="comp-cell highlight">Checkr Verified</div></div>
+    <div class="comp-row"><div class="comp-cell label">Contract</div><div class="comp-cell">Annual</div><div class="comp-cell">Per project</div><div class="comp-cell highlight">Month-to-month</div></div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="section case-section">
+  <div class="case-inner">
+    <div class="section-label reveal" style="justify-content:center;display:flex;">Case Study</div>
+    <div class="section-title reveal" style="color:white;">Started with bookkeeping. Scaled to seven locations.</div>
+    <div class="case-quote reveal">A cannabis dispensary came to us as a single location. The first VA we assigned handled bookkeeping and financial operations. As they expanded, we scaled with them. Today they run seven locations supported by five dedicated VAs.</div>
+    <div class="case-metrics reveal">
+      <div><div class="case-metric-num">1 → 7</div><div class="case-metric-label">Locations Scaled</div></div>
+      <div><div class="case-metric-num">5</div><div class="case-metric-label">Dedicated VAs</div></div>
+      <div><div class="case-metric-num">$700</div><div class="case-metric-label">Starting Monthly Cost</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing">
+  <div style="text-align:center;max-width:800px;margin:0 auto;">
+    <div class="section-label reveal" style="justify-content:center;display:flex;">Pricing</div>
+    <div class="section-title reveal">Accurate books shouldn't cost<br>a fortune.</div>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card reveal">
+      <div class="pc-label">Part-Time</div>
+      <div class="pc-amount">$700<span class="pc-period">/mo</span></div>
+      <div class="pc-desc">For small businesses needing consistent bookkeeping without full-time overhead.</div>
+      <ul class="pc-features">
+        <li>Dedicated bookkeeping VA</li><li>Up to 20 hours/week</li><li>QuickBooks / Xero trained</li>
+        <li>Weekly reconciliation</li><li>Backup VA during leave</li><li>Cancel anytime</li>
+      </ul>
+      <button class="pc-btn outline">Get Started</button>
+    </div>
+    <div class="price-card featured reveal">
+      <div class="pc-label">Full-Time</div>
+      <div class="pc-amount">$1,300<span class="pc-period">/mo</span></div>
+      <div class="pc-desc">For growing businesses ready to hand off all financial operations.</div>
+      <ul class="pc-features">
+        <li>Everything in Part-Time</li><li>Up to 40 hours/week</li><li>Priority VA matching</li>
+        <li>Daily reconciliation</li><li>Dedicated Client Manager</li><li>Scale to multiple VAs</li>
+      </ul>
+      <button class="pc-btn filled">Get Started</button>
+    </div>
+    <div class="price-card reveal">
+      <div class="pc-label">Enterprise</div>
+      <div class="pc-amount" style="font-size:32px;">Custom</div>
+      <div class="pc-desc">For multi-entity businesses needing consolidated financial operations at scale.</div>
+      <ul class="pc-features">
+        <li>Multiple dedicated VAs</li><li>Cross-entity consolidation</li><li>Custom reporting</li>
+        <li>Account Director</li><li>SLA agreements</li><li>Volume pricing</li>
+      </ul>
+      <button class="pc-btn outline">Schedule Consultation</button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <h2>Stop doing your books on Sunday nights.</h2>
+    <p>Book a free 15-minute strategy call. We'll match you with a dedicated bookkeeping VA who knows your software and your industry.</p>
+    <button class="btn-forest">Book a Strategy Call</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-text">Accountant Capital VA</div>
+      <p style="font-size:14px;color:rgba(255,255,255,0.35);line-height:1.7;margin-top:12px;max-width:280px;">Bookkeeping and financial virtual assistants. A division of The Human Capital — dedicated VA services since 2019.</p>
+    </div>
+    <div class="footer-col"><h5>Services</h5><a href="#">Bookkeeping</a><a href="#">Bank Reconciliation</a><a href="#">Invoicing & AR</a><a href="#">Expense & AP</a><a href="#">Payroll Support</a><a href="#">Financial Reporting</a></div>
+    <div class="footer-col"><h5>Industries</h5><a href="#">Small Business</a><a href="#">eCommerce</a><a href="#">Retail</a><a href="#">Professional Services</a><a href="#">Multi-Location</a><a href="#">Startups</a></div>
+    <div class="footer-col"><h5>Locations</h5><a href="#">United States</a><a href="#">United Kingdom</a><a href="#">Middle East</a><a href="#">Australia & NZ</a></div>
+    <div class="footer-col"><h5>Company</h5><a href="#">The Standard</a><a href="#">Pricing</a><a href="#">Case Studies</a><a href="#">Tools</a><a href="https://thehuman.capital">The Human Capital</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Accountant Capital VA. Part of The Human Capital.</span>
+    <span><a href="#" style="color:rgba(255,255,255,0.25);">Privacy</a> &middot; <a href="#" style="color:rgba(255,255,255,0.25);">Terms</a></span>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => { document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60); });
+const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
